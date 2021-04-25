@@ -13,6 +13,12 @@
   </table>
   <%= link_to "user edit", edit_user_path(@user) %>
 </div>
+
 <h2>New book</h2>
-
-
+<%= form_with model:@book, local:true do |f| %>
+  <p>Title</p>
+  <%= f.text_field :title %>
+  <p>Opinion</p>
+  <%= f.text_area :opinion %>
+  <%= f.submit "Create Book" %>
+<% end %>
