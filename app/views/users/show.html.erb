@@ -19,6 +19,18 @@
   <p>Title</p>
   <%= f.text_field :title %>
   <p>Opinion</p>
-  <%= f.text_area :opinion %>
+  <%= f.text_area :body %>
   <%= f.submit "Create Book" %>
+<% end %>
+
+<h1>Books</h1>
+<% @books.each do |book| %>
+  <p></p>
+  <%= link_to user_path(@user.id) do %>
+    <%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, format: 'jpg', fallback: "no_image.jpg" %>
+  <% end %>
+  <p>Title</p>
+  <%= link_to book.title, book_path(book.id) %>
+  <p>Opinion</p>
+  <%= book.body %>
 <% end %>
