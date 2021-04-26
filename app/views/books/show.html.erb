@@ -1,3 +1,4 @@
 <h2>Book detail</h2>
 <%= link_to @book.title, book_path(@book.id) %>
-<p><%= @book.opinion %></p>
+<p><%= @book.body %></p>
+<%= link_to "Edit", edit_book_path(@book.id) %>
