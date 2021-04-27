@@ -30,5 +30,7 @@
 <%= link_to @book.user.name, user_path(@book.user.id) %><br>
 <%= link_to @book.title, book_path(@book.id) %>
 <p><%= @book.body %></p>
-<%= link_to "Edit", edit_book_path(@book.id) %>
-<%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+<% if @book.user == current_user %>
+  <%= link_to "Edit", edit_book_path(@book.id) %>
+  <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+<% end %>
