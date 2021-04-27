@@ -7,30 +7,7 @@
   <% end %>
 <% end %>
 
-<h2>User info</h2>
-<div class="profile-container">
-  <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: 'jpg', fallback: "no_image.jpg" %>
-  <table>
-    <tr>
-      <th>name</th>
-      <th><%= current_user.name %></th>
-    </tr>
-    <tr>
-      <th>introduction</th>
-      <th><%= current_user.introduction %></th>
-    </tr>
-  </table>
-  <%= link_to "user edit", edit_user_path(current_user.id) %>
-</div>
-
-<h2>New book</h2>
-<%= form_with model:@book, local:true do |f| %>
-  <p>Title</p>
-  <%= f.text_field :title %>
-  <p>Opinion</p>
-  <%= f.text_area :body %>
-  <%= f.submit "Create Book" %>
-<% end %>
+<%= render 'users/list' %>
 
 <h1>Books</h1>
 <% @books.each do |book| %>
